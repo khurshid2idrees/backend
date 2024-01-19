@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "memberdetails",
+  "info": {
+    "singularName": "memberdetail",
+    "pluralName": "memberdetails",
+    "displayName": "memberdetail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "flat": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "months": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::month.month",
+      "mappedBy": "memberdetails"
+    }
+  }
+}

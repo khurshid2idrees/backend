@@ -362,30 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiBookBook extends Schema.CollectionType {
-  collectionName: 'books';
-  info: {
-    singularName: 'book';
-    pluralName: 'books';
-    displayName: 'Food';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    store: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -792,6 +768,157 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiKdbillKdbill extends Schema.CollectionType {
+  collectionName: 'kdbills';
+  info: {
+    singularName: 'kdbill';
+    pluralName: 'kdbills';
+    displayName: 'kdbill';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    january: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    febraury: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    march: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    april: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    may: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    june: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    august: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    september: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    october: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    november: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    december: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::kdbill.kdbill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::kdbill.kdbill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMemberMember extends Schema.CollectionType {
+  collectionName: 'members';
+  info: {
+    singularName: 'member';
+    pluralName: 'members';
+    displayName: 'member';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    flat: Attribute.String;
+    paymentCollected: Attribute.Integer;
+    TotalAmount: Attribute.Integer;
+    Details: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMemberdetailMemberdetail extends Schema.CollectionType {
+  collectionName: 'memberdetails';
+  info: {
+    singularName: 'memberdetail';
+    pluralName: 'memberdetails';
+    displayName: 'memberdetail';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    flat: Attribute.String;
+    email: Attribute.Email & Attribute.Required;
+    phone: Attribute.String;
+    months: Attribute.Relation<
+      'api::memberdetail.memberdetail',
+      'manyToMany',
+      'api::month.month'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::memberdetail.memberdetail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::memberdetail.memberdetail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMonthMonth extends Schema.CollectionType {
+  collectionName: 'months';
+  info: {
+    singularName: 'month';
+    pluralName: 'months';
+    displayName: 'month';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    month: Attribute.String;
+    memberdetails: Attribute.Relation<
+      'api::month.month',
+      'manyToMany',
+      'api::memberdetail.memberdetail'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::month.month',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::month.month',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -802,7 +929,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::book.book': ApiBookBook;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -811,6 +937,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::kdbill.kdbill': ApiKdbillKdbill;
+      'api::member.member': ApiMemberMember;
+      'api::memberdetail.memberdetail': ApiMemberdetailMemberdetail;
+      'api::month.month': ApiMonthMonth;
     }
   }
 }

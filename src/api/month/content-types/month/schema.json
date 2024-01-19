@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "months",
+  "info": {
+    "singularName": "month",
+    "pluralName": "months",
+    "displayName": "month",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "month": {
+      "type": "string"
+    },
+    "memberdetails": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::memberdetail.memberdetail",
+      "inversedBy": "months"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "flat": {
+      "type": "string"
+    },
+    "paymentCollected": {
+      "type": "integer"
+    },
+    "TotalAmount": {
+      "type": "integer"
+    },
+    "Details": {
+      "type": "string"
+    }
+  }
+}

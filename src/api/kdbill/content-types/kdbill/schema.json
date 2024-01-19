@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kdbills",
+  "info": {
+    "singularName": "kdbill",
+    "pluralName": "kdbills",
+    "displayName": "kdbill",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "january": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "febraury": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "march": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "april": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "may": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "june": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "august": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "september": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "october": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "november": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "december": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    }
+  }
+}
